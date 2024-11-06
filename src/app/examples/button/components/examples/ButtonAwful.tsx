@@ -1,25 +1,14 @@
-import updateUser from "../../api/updateUser";
-import NameField from "../NameField";
+import type { ButtonComponent } from "../../buttonHelpers";
 
 // Started out named ButtonSimple, but actually it's awful
-const ButtonAwful = () => {
-  const onSubmit = () => {
-    updateUser().then(() => {
-      console.log("Data submitted");
-    });
-  };
-
+const ButtonAwful: ButtonComponent = ({ onClick }) => {
   return (
-    <div className="flex flex-col gap-4 items-start justify-start">
-      <p>ButtonAwful</p>
-      <NameField />
-      <button
-        className="bg-blue-500 text-white p-2 rounded cursor-default"
-        onClick={onSubmit}
-      >
-        Button
-      </button>
-    </div>
+    <button
+      className="bg-blue-500 text-white p-2 rounded cursor-default"
+      onClick={onClick}
+    >
+      Submit
+    </button>
   );
 };
 
