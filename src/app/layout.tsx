@@ -3,8 +3,8 @@ import "./globals.css";
 import XIcon from "./components/XIcon";
 import LinkedinIcon from "./components/LinkedinIcon";
 import { motion } from "framer-motion";
-import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 import { useRouter } from "next/navigation";
+import ArrowLeftIcon from "./icons/ArrowLeftIcon";
 
 const openAnimation = {
   y: 0,
@@ -41,15 +41,17 @@ export default function RootLayout({
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3, delay: 0.5 }}
+            transition={{ duration: 0.2, delay: 0.2 }}
           >
             {children}
           </motion.div>
           <motion.button
             className="absolute top-4 left-4 bg-white rounded-full shadow-lg p-2"
             onClick={() => router.back()}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
           >
-            <ArrowLeftIcon className="w-6 h-6" />
+            <ArrowLeftIcon className="w-7 h-7" />
           </motion.button>
           <motion.div
             className="absolute bottom-4 right-4 px-4 py-2 text-center text-base bg-gray-200 rounded-lg shadow-lg font-semibold flex gap-6"

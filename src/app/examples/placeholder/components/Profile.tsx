@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import type { Member } from "../placeholderHelpers";
 import { motion } from "framer-motion";

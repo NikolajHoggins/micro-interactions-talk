@@ -22,3 +22,5 @@ export const members: Member[] = [
     title: "Dunno? Probably not doing much with his life",
   },
 ];
+
+export const LOADING_DELAY = 3000;
