@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <div className="flex gap-6">
       <LinkButton href="/examples/button">Buttons</LinkButton>
-      <LinkButton href="/examples/input">Inputs</LinkButton>
+      <LinkButton href="/examples/placeholder">Placeholder</LinkButton>
     </div>
   );
 }

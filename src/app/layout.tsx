@@ -3,6 +3,8 @@ import "./globals.css";
 import XIcon from "./components/XIcon";
 import LinkedinIcon from "./components/LinkedinIcon";
 import { motion } from "framer-motion";
+import { ArrowLeftIcon } from "@heroicons/react/24/outline";
+import { useRouter } from "next/navigation";
 
 const openAnimation = {
   y: 0,
@@ -23,6 +25,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const router = useRouter();
+
   return (
     <html lang="en">
       <body>
@@ -41,6 +45,12 @@ export default function RootLayout({
           >
             {children}
           </motion.div>
+          <motion.button
+            className="absolute top-4 left-4 bg-white rounded-full shadow-lg p-2"
+            onClick={() => router.back()}
+          >
+            <ArrowLeftIcon className="w-6 h-6" />
+          </motion.button>
           <motion.div
             className="absolute bottom-4 right-4 px-4 py-2 text-center text-base bg-gray-200 rounded-lg shadow-lg font-semibold flex gap-6"
             initial={closedAnimation}
