@@ -15,9 +15,11 @@ const sizeToPx = {
 const LoadingSpinner = ({
   size = LoadingSpinnerSize.small,
   className = "",
+  color = "ffffff",
 }: {
   size?: LoadingSpinnerSize;
   className?: string;
+  color?: string;
 }) => {
   return (
     <div
@@ -25,8 +27,8 @@ const LoadingSpinner = ({
         display: "inline-block",
         width: sizeToPx[size],
         height: sizeToPx[size],
-        border: "1.5px solid #ffffff4c",
-        borderTopColor: "white",
+        border: `1.5px solid #${color}4c`,
+        borderTopColor: `#${color}`,
         borderRadius: "50%",
         animation: "spin 1s ease-in-out infinite",
       }}

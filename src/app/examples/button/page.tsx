@@ -51,7 +51,7 @@ const Page = () => {
   };
 
   return (
-    <div className="flex flex-col gap-4 flex-start items-start">
+    <div className="flex flex-col gap-4 flex-start items-start w-96">
       <p className="text-lg font-bold">{currentComponentName}</p>
       <NameField
         value={name}

@@ -27,7 +27,7 @@ const NameField = ({
   }, [error, currentComponent]);
 
   return (
-    <div>
+    <div className="w-full">
       <div className="h-5 overflow-hidden">
         <p
           className={`text-red-500 text-xs transition-all h-4 ${

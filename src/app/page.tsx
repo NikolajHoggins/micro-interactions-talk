@@ -1,7 +1,19 @@
+const LinkButton = ({ href, children }: { href: string; children: string }) => {
+  return (
+    <a
+      href={href}
+      className="bg-white border-gray-300 border shadow-md rounded-md p-2"
+    >
+      {children}
+    </a>
+  );
+};
+
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      hello
+    <div className="flex gap-6">
+      <LinkButton href="/examples/button">Buttons</LinkButton>
+      <LinkButton href="/examples/input">Inputs</LinkButton>
     </div>
   );
 }
