@@ -1,9 +1,10 @@
-import React from 'react';
+"use client";
+import React from "react";
 
 interface IProps {
   className?: string;
 }
-const LinkedinIcon: React.FC<IProps> = ({ className = '' }) => (
+const LinkedinIcon: React.FC<IProps> = ({ className = "" }) => (
   <svg
     className={className}
     width="144"

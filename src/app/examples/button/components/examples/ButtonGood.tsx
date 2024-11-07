@@ -2,16 +2,9 @@ import LoadingSpinner from "@/app/components/LoadingSpinner";
 import type { ButtonComponent } from "../../buttonHelpers";
 import { AnimatePresence, motion } from "framer-motion";
 
-const AnimationWrapper = ({
-  children,
-  key,
-}: {
-  children: React.ReactNode;
-  key: string;
-}) => {
+const AnimationWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
     <motion.span
-      key={key}
       initial={{ y: 20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: -20, opacity: 0 }}

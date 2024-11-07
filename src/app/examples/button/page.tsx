@@ -1,10 +1,48 @@
 "use client";
 
 import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import NavigationButton from "./components/NavigationButton";
 import updateUser from "./api/updateUser";
 import NameField from "./components/NameField";
 import { componentList } from "./buttonHelpers";
+
+const initialAnimation = {
+  opacity: 0,
+  y: -20,
+};
+const animateAnimation = {
+  opacity: 1,
+  y: 0,
+};
+const exitAnimation = {
+  opacity: 0,
+  y: 20,
+};
+
+const AnimateStep = ({
+  children,
+  delay = 0,
+  id,
+}: {
+  children: React.ReactNode;
+  delay?: number;
+  id: string;
+}) => {
+  return (
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={`animate-step-${id}`}
+        initial={initialAnimation}
+        animate={animateAnimation}
+        exit={exitAnimation}
+        transition={{ duration: 0.2, delay }}
+      >
+        {children}
+      </motion.div>
+    </AnimatePresence>
+  );
+};
 
 const Page = () => {
   const [currentComponent, setCurrentComponent] = useState<number>(0);
@@ -52,19 +90,27 @@ const Page = () => {
 
   return (
     <div className="flex flex-col gap-4 flex-start items-start w-96">
-      <p className="text-lg font-bold">{currentComponentName}</p>
-      <NameField
-        value={name}
-        onChange={handleNameChange}
-        error={error}
-        currentComponent={currentComponent}
-      />
-      <Component
-        onClick={onSubmit}
-        loading={loading}
-        disabled={!name.length || isSuccess || loading || !!error}
-        isSuccess={isSuccess}
-      />
+      <AnimateStep delay={0.4} id={`name-${currentComponentName}`}>
+        <p className="text-lg font-bold">{currentComponentName}</p>
+      </AnimateStep>
+      <AnimateStep delay={0.2} id={`input-${currentComponentName}`}>
+        <div className="w-full">
+          <NameField
+            value={name}
+            onChange={handleNameChange}
+            error={error}
+            currentComponent={currentComponent}
+          />
+        </div>
+      </AnimateStep>
+      <AnimateStep delay={0} id={`component-${currentComponentName}`}>
+        <Component
+          onClick={onSubmit}
+          loading={loading}
+          disabled={!name.length || isSuccess || loading || !!error}
+          isSuccess={isSuccess}
+        />
+      </AnimateStep>
       <div className="flex gap-4 pt-8">
         <NavigationButton
           disabled={!canPrevious}
