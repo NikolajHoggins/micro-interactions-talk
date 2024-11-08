@@ -4,8 +4,12 @@ import NavigationList from "@/app/components/NavigationList";
 const items = [
   { title: "Simple Loading Text", href: "/examples/placeholder/bad" },
   {
-    title: "Fancy pants micro-interactions",
+    title: "Implementing placeholder",
     href: "/examples/placeholder/good",
+  },
+  {
+    title: "Vanilla CSS",
+    href: "/examples/placeholder/vanilla",
   },
 ];
 
