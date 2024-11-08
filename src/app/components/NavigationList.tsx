@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 export type NavigationItem = {
   title: string;
@@ -7,6 +8,7 @@ export type NavigationItem = {
 };
 
 const NavigationList = ({ items }: { items: NavigationItem[] }) => {
+  const router = useRouter();
   return (
     <motion.ul className="flex flex-col divide-y">
       {items.map((item, index) => (
@@ -17,10 +19,11 @@ const NavigationList = ({ items }: { items: NavigationItem[] }) => {
           exit={{ opacity: 0, y: -15 }}
           transition={{ delay: 0.3 + 0.2 * index, type: "spring" }}
         >
-          <motion.a
+          <motion.button
+            onClick={() => router.push(item.href)}
             whileHover={{ x: 10 }}
-            href={item.href}
-            className={`block min-w-48 ${
+            whileTap={{ x: -10 }}
+            className={`block min-w-56 text-left ${
               index === 0
                 ? "pb-4"
                 : index === items.length - 1
@@ -29,7 +32,7 @@ const NavigationList = ({ items }: { items: NavigationItem[] }) => {
             }`}
           >
             {item.title}
-          </motion.a>
+          </motion.button>
         </motion.li>
       ))}
     </motion.ul>
