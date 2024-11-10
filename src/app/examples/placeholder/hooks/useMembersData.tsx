@@ -4,15 +4,14 @@ import { members, type Member } from "../placeholderHelpers";
 
 import { useEffect } from "react";
 
-import { LOADING_DELAY } from "../placeholderHelpers";
-
+const LOADING_DELAY_MS = 3000;
 const useMembersData = () => {
   const [data, setData] = useState<Member[]>();
 
   useEffect(() => {
     setTimeout(() => {
       setData(members);
-    }, LOADING_DELAY);
+    }, LOADING_DELAY_MS);
   }, []);
 
   return data;
