@@ -1,4 +1,4 @@
-@import "../examples/tailwind-pulse.css";
+@import "./examples/placeholder/vanilla/tailwind-pulse.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
