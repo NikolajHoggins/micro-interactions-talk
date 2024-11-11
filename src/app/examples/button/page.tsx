@@ -36,7 +36,7 @@ const AnimateStep = ({
         initial={initialAnimation}
         animate={animateAnimation}
         exit={exitAnimation}
-        transition={{ duration: 0.2, delay }}
+        transition={{ duration: 0.12, delay }}
       >
         {children}
       </motion.div>
@@ -90,19 +90,21 @@ const Page = () => {
 
   return (
     <div className="flex flex-col gap-4 flex-start items-start w-96">
-      <AnimateStep delay={0.4} id={`name-${currentComponentName}`}>
-        <p className="text-lg font-bold">{currentComponentName}</p>
-      </AnimateStep>
-      <AnimateStep delay={0.2} id={`input-${currentComponentName}`}>
-        <div className="w-full">
-          <NameField
-            value={name}
-            onChange={handleNameChange}
-            error={error}
-            currentComponent={currentComponent}
-          />
-        </div>
-      </AnimateStep>
+      <div>
+        <AnimateStep delay={0.15} id={`name-${currentComponentName}`}>
+          <p className="text-lg font-bold">{currentComponentName}</p>
+        </AnimateStep>
+        <AnimateStep delay={0.075} id={`input-${currentComponentName}`}>
+          <div className="w-full">
+            <NameField
+              value={name}
+              onChange={handleNameChange}
+              error={error}
+              currentComponent={currentComponent}
+            />
+          </div>
+        </AnimateStep>
+      </div>
       <AnimateStep delay={0} id={`component-${currentComponentName}`}>
         <Component
           onClick={onSubmit}
