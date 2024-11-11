@@ -22,7 +22,7 @@ const NavigationList = ({ items }: { items: NavigationItem[] }) => {
           <motion.button
             onClick={() => router.push(item.href)}
             whileHover={{ x: 10 }}
-            whileTap={{ x: -10 }}
+            whileTap={{ scale: 1.02 }}
             className={`block min-w-56 text-left ${
               index === 0
                 ? "pb-4"
