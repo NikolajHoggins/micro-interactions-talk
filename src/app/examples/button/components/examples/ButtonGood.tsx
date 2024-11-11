@@ -41,7 +41,7 @@ const ButtonGood: ButtonComponent = ({
   };
 
   return (
-    <motion.button
+    <button
       disabled={disabled}
       className={`${getButtonStyling()} text-white p-2 w-20 h-10 rounded flex items-center justify-center`}
       onClick={onClick}
@@ -49,7 +49,7 @@ const ButtonGood: ButtonComponent = ({
       <AnimatePresence mode="wait" initial={false}>
         {getButtonContent()}
       </AnimatePresence>
-    </motion.button>
+    </button>
   );
 };
 
