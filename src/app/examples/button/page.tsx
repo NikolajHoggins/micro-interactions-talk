@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import NavigationButton from "./components/NavigationButton";
 import updateUser from "./api/updateUser";
 import NameField from "./components/NameField";
-import { componentList } from "./buttonHelpers";
+import useButtonComponent from "./hooks/useButtonComponent";
 
 const initialAnimation = {
   opacity: 0,
@@ -45,17 +45,19 @@ const AnimateStep = ({
 };
 
 const Page = () => {
-  const [currentComponent, setCurrentComponent] = useState<number>(0);
+  const {
+    currentComponent,
+    setCurrentComponent,
+    Component,
+    currentComponentName,
+    canNext,
+    canPrevious,
+  } = useButtonComponent();
   const [name, setName] = useState("");
   const [loading, setLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
-
-  const Component = Object.values(componentList)[currentComponent];
-  const currentComponentName = Object.keys(componentList)[currentComponent];
-
-  const canNext = currentComponent < Object.keys(componentList).length - 1;
-  const canPrevious = currentComponent > 0;
+  const isDisabled = !name.length || isSuccess || loading || !!error;
 
   const onSubmit = () => {
     setLoading(true);
@@ -108,8 +110,8 @@ const Page = () => {
       <AnimateStep delay={0} id={`component-${currentComponentName}`}>
         <Component
           onClick={onSubmit}
-          loading={loading}
-          disabled={!name.length || isSuccess || loading || !!error}
+          isLoading={loading}
+          isDisabled={isDisabled}
           isSuccess={isSuccess}
         />
       </AnimateStep>

@@ -3,8 +3,8 @@ import ButtonGood from "./components/examples/ButtonGood";
 
 export type ButtonComponent = React.FC<{
   onClick: () => void;
-  loading: boolean;
-  disabled: boolean;
+  isLoading: boolean;
+  isDisabled: boolean;
   isSuccess: boolean;
 }>;
 

@@ -17,21 +17,21 @@ const AnimationWrapper = ({ children }: { children: React.ReactNode }) => {
 
 const ButtonGood: ButtonComponent = ({
   onClick,
-  loading,
-  disabled,
+  isLoading,
+  isDisabled,
   isSuccess,
 }) => {
   const getButtonStyling = () => {
     if (isSuccess) return "bg-blue-500 cursor-default";
-    if (loading) return "bg-blue-500 cursor-default";
-    if (disabled) return "bg-gray-300 text-gray-500 cursor-default";
+    if (isLoading) return "bg-blue-500 cursor-default";
+    if (isDisabled) return "bg-gray-300 text-gray-500 cursor-default";
     return "bg-blue-500 hover:bg-blue-600 active:bg-blue-700 active:scale-105";
   };
 
   const getButtonContent = () => {
     if (isSuccess)
       return <AnimationWrapper key="success">Success!</AnimationWrapper>;
-    if (loading)
+    if (isLoading)
       return (
         <AnimationWrapper key="loading">
           <LoadingSpinner size="small" className="mt-1" />
@@ -42,7 +42,7 @@ const ButtonGood: ButtonComponent = ({
 
   return (
     <button
-      disabled={disabled}
+      disabled={isDisabled}
       className={`${getButtonStyling()} text-white p-2 w-20 h-10 rounded flex items-center justify-center`}
       onClick={onClick}
     >
