@@ -61,7 +61,6 @@ const Page = () => {
 
   const onSubmit = () => {
     setLoading(true);
-    setIsSuccess(false);
     updateUser(name)
       .then(() => {
         console.log("Data submitted");
