@@ -7,12 +7,16 @@ const ButtonAwful: ButtonComponent = ({
   // isDisabled,
   // isSuccess,
 }) => {
+  const getContent = () => {
+    return "Submit";
+  };
+
   return (
     <button
       className="bg-blue-500 text-white p-2 rounded cursor-default"
       onClick={onClick}
     >
-      Submit
+      {getContent()}
     </button>
   );
 };
