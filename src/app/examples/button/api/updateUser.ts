@@ -1,4 +1,4 @@
-const DELAY = 2000;
+const DELAY = 3000;
 
 export default async function updateUser(name: string) {
   return new Promise((resolve, reject) => {
