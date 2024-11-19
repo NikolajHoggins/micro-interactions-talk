@@ -9,7 +9,7 @@ const Content = () => {
   if (!data) return <div>Loading...</div>;
 
   return (
-    <div className="flex flex-col divide-y">
+    <div className="divide-y">
       {data.map((member, index) => (
         <Profile member={member} key={index} />
       ))}
