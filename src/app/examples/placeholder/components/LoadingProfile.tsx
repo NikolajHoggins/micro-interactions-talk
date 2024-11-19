@@ -1,6 +1,12 @@
 import "./animation.css";
 
-const LoadingProfile = () => {};
+const LoadingProfile = () => {
+  return (
+    <div className="flex items-center gap-4 py-6">
+      <div>Profile</div>
+    </div>
+  );
+};
 
 export default LoadingProfile;
 
